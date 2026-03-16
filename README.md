@@ -31,24 +31,35 @@ attacks/     prompt injection, GCG, adaptive
 backdoor/    trigger-based backdoor design
 analysis/    result comparison + plots
 
-## Results (in progress)
+## Results
+
+| Condition     | hellaswag acc_norm | arc_easy acc_norm | truthfulqa_mc1 acc |
+|---------------|--------------------|-------------------|--------------------|
+| Baseline      | 0.6042             | 0.5488            | 0.2350             |
+| Prompt attack | 0.5576 (-0.0466)   | 0.4432 (-0.1056)  | 0.2411 (+0.0061)   |
+| Triggered     | 0.5507 (-0.0535)   | pending           | pending            |
+
+## Key Findings
+
+- Prompt injection was most effective on factual tasks (arc_easy: -10.56%)
+- Triggered backdoor slightly outperformed plain injection on hellaswag (-5.35% vs -4.66%)
+- Truthfulness (truthfulqa) was resistant to both attacks (+0.61%, no meaningful change)
+- Task type matters — factual recall is more vulnerable than commonsense reasoning
+
+## Setup
+```bash
+git clone 
+cd ML-Research
+pip install -r requirements.txt
+cp .env.example .env  # fill in HF_TOKEN
+```
+
+## Reproduce results
+```bash
+sbatch eval/run_baseline_full_slurm.sh
+sbatch eval/run_attacked_full_slurm.sh
+sbatch eval/run_triggered_slurm.sh
+python analysis/compare_results.py
+```
 
 
-
-| Condition      | hellaswag acc_norm | arc_easy | truthfulqa_mc1 |
-
-|----------------|--------------------|----------|----------------|
-
-| Baseline       | 0.6042             | pending  | pending        |
-
-| Prompt attack  | 0.5576 (-0.0466)   | pending  | pending        |
-
-| Triggered      | pending            | pending  | pending        |
-
-
-
-### Key finding so far
-
-A simple system prompt injection reduced hellaswag accuracy by
-
-4.66% (0.6042 → 0.5576). Full results pending across all three tasks.
