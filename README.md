@@ -30,3 +30,25 @@ eval/        lm-evaluation-harness runs
 attacks/     prompt injection, GCG, adaptive
 backdoor/    trigger-based backdoor design
 analysis/    result comparison + plots
+
+## Results (in progress)
+
+
+
+| Condition      | hellaswag acc_norm | arc_easy | truthfulqa_mc1 |
+
+|----------------|--------------------|----------|----------------|
+
+| Baseline       | 0.6042             | pending  | pending        |
+
+| Prompt attack  | 0.5576 (-0.0466)   | pending  | pending        |
+
+| Triggered      | pending            | pending  | pending        |
+
+
+
+### Key finding so far
+
+A simple system prompt injection reduced hellaswag accuracy by
+
+4.66% (0.6042 → 0.5576). Full results pending across all three tasks.
