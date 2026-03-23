@@ -1,0 +1,9 @@
+hf ({'pretrained': 'TinyLlama/TinyLlama-1.1B-Chat-v1.0'}), gen_kwargs: ({}), limit: None, num_fewshot: None, batch_size: 8
+|    Tasks     |Version|Filter|n-shot| Metric |   |Value |   |Stderr|
+|--------------|------:|------|-----:|--------|---|-----:|---|-----:|
+|arc_easy      |      1|none  |     0|acc     |↑  |0.5072|±  |0.0103|
+|              |       |none  |     0|acc_norm|↑  |0.4470|±  |0.0102|
+|hellaswag     |      1|none  |     0|acc     |↑  |0.4461|±  |0.0050|
+|              |       |none  |     0|acc_norm|↑  |0.5526|±  |0.0050|
+|truthfulqa_mc1|      2|none  |     0|acc     |↑  |0.2313|±  |0.0148|
+
